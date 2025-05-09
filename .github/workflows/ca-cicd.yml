@@ -48,9 +48,9 @@ jobs:
           terraform_version: 1.5.0
 
       - name: Terraform Init
-        working-directory: ./bootstrap-backend
+        working-directory: ./provision-backend
         run: terraform init
 
       - name: Terraform Apply
-        working-directory: ./bootstrap-backend
+        working-directory: ./provision-backend
         run: terraform apply -auto-approve
