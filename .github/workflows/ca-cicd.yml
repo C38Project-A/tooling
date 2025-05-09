@@ -1,8 +1,6 @@
 name: Provision Terraform Backend
 
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
     inputs:
       environment:
