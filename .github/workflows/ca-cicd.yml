@@ -3,8 +3,6 @@ name: Provision Terraform Backend
 on:
   push:
     branches: [main]
-  pull_request:
-    branches: [main]
   workflow_dispatch:
     inputs:
       environment:
@@ -17,7 +15,7 @@ on:
         default: "us-east-2"
       action:
         description: "Terraform action: apply (default) or destroy"
-        required: false
+        required: true
         default: "apply"
 
 concurrency:
@@ -52,5 +50,9 @@ jobs:
         run: terraform init
 
       - name: Terraform Apply
+        working-directory: ./provision-backend
+        run: terraform apply -auto-approve
+
+      - name: Terraform destroy
         working-directory: ./provision-backend
         run: terraform apply -auto-approve
