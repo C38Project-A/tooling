@@ -15,6 +15,10 @@ on:
         description: "Terraform action: apply (default) or destroy"
         required: true
         default: "apply"
+        type: choice
+        options:
+        - apply
+        - destroy
 
 concurrency:
   group: terraform-${{ github.ref }}
@@ -47,9 +51,9 @@ jobs:
         working-directory: ./provision-backend
         run: terraform init
 
-      - name: Terraform Apply
-        working-directory: ./provision-backend
-        run: terraform apply -auto-approve
+      # - name: Terraform Apply
+      #  working-directory: ./provision-backend
+      #  run: terraform apply -auto-approve
 
       - name: Terraform destroy
         working-directory: ./provision-backend
