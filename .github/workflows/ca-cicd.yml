@@ -14,7 +14,7 @@ on:
       action:
         description: "Terraform action: apply (default) or destroy"
         required: true
-        default: "destroy"
+        default: "apply"
         # type: choice
         # options:
         # - apply
@@ -51,9 +51,9 @@ jobs:
         working-directory: ./provision-backend
         run: terraform init
 
-      # - name: Terraform Apply
-      #  working-directory: ./provision-backend
-      #  run: terraform apply -auto-approve
+      - name: Terraform Apply
+        working-directory: ./provision-backend
+        run: terraform apply -auto-approve
 
       - name: Terraform destroy
         working-directory: ./provision-backend
