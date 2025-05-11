@@ -14,11 +14,11 @@ on:
       action:
         description: "Terraform action: apply (default) or destroy"
         required: true
-        default: "apply"
-        type: choice
-        options:
-        - apply
-        - destroy
+        default: "destroy"
+        # type: choice
+        # options:
+        # - apply
+        # - destroy
 
 concurrency:
   group: terraform-${{ github.ref }}
