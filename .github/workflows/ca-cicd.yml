@@ -51,9 +51,9 @@ jobs:
         working-directory: ./provision-backend
         run: terraform init
 
-      - name: Terraform Apply
+      - name: Terraform destroy
         working-directory: ./provision-backend
-        run: terraform apply -auto-approve
+        run: terraform destroy -auto-approve
 
       - name: Terraform destroy
         working-directory: ./provision-backend
